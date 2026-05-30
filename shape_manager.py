@@ -7,11 +7,15 @@ from hexagon import Hexagon
 
 
 class ShapeManager:
+    shape_id = 1
+
     def __init__(self):
         self.file_path = "shapes.json"
         self.shapes = self.load_from_json()
 
     def create_shape(self, shape):
+        max_id = max([s.id for s in self.shapes], default=0)
+        shape.id = max_id + 1
         self.shapes.append(shape)
         self.save_to_json()
 
