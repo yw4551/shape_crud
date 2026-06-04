@@ -59,7 +59,7 @@ class ShapeManager:
             dicts.append(shape.to_dict())
 
         with open(self.file_path, "w", encoding="utf-8") as f:
-            json.dump(dicts, f)
+            json.dump(dicts, f, indent=4)
 
     def load_from_json(self):
         try:
